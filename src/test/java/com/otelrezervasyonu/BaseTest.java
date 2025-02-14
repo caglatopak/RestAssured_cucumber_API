@@ -8,6 +8,12 @@ import static io.restassured.RestAssured.given;
 
 public class BaseTest {
 
+
+    protected int createBookingId() {
+        Response response = createBooking();
+        return response.jsonPath().getJsonObject("bookingid");
+    }
+
     protected Response createBooking() {
 
         Response response = given()      // rezervasyon olusturma methodunuda base test altina alirsak boylece diger siniflarda onu kullanabilir ve
