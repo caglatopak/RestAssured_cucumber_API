@@ -1,3 +1,5 @@
+package com.otelrezervasyonu;
+
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.json.JSONObject;
@@ -6,10 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class CreateBookingTests {
-
-
-
+public class CreateBookingTests extends BaseTest{ // yani bu sinif basetest sinifinin bir alt sinifi oluyor
 
 
     @Test
@@ -34,7 +33,7 @@ public class CreateBookingTests {
         //}'
 
 
-        JSONObject body = new JSONObject();  // json objesi olusturma
+       /* JSONObject body = new JSONObject();  // json objesi olusturma // basetest sinifinda daha duzenli gorunmesi icin basetest sinifina tasindi
 
          body.put("firstname","cagla");
          body.put ("lastname", "topak");
@@ -52,20 +51,25 @@ public class CreateBookingTests {
          body.put("bookingdates", bookingDates);  // ana govdeye eklendi
          body.put("additionalneeds", "evcil hayvan kabul edilen oda ");
 
-
+*/
        //cagryi gercejklestir // post cagrisi
 
 
-        Response response = given()
+       /* Response response = given()   // rezervasyon olusturma methodunuda base test altina alirsak boylece diger siniflarda onu kullanabilir ve
+                                      // bizim tekrar tekrar kod yazmamiza gerek kalmaz boylece projemiz daha okunakli sade ve duzenli olmus olur
                 .when()
                 .contentType(ContentType.JSON)
-                .body(body.toString())  // body burdajson objesi oldugu icin string e cevrimemiz gerekir bunuda tostring metodu ile yapariz.
+                .body(bookingObject() ) // body burdajson objesi oldugu icin string e cevrimemiz gerekir bunuda tostring metodu ile yapariz.
                 .post("https://restful-booker.herokuapp.com/booking");
 
         response.prettyPrint();
         response
                 .then()
                 .statusCode(200);
+*/
+        Response response = createBooking(); // basetest sinifina tasidimiz methodu
+                                             // response methoduna tasidiktan sonra burda methodu cagirrarak assertionlarimiz yapabiliriz
+
 
         Assertions.assertEquals("cagla", response.jsonPath().getJsonObject("booking.firstname")); // first name e erisim saglamak icin ondan onceki bagli oldugu path i yazmamiz gerekir
         Assertions.assertEquals("topak", response.jsonPath().getJsonObject("booking.lastname"));

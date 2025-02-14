@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a2adafd-3ec6-4eae-8318-e9e1521c977f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/CreateBookingTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/otelrezervasyonu/BaseTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/otelrezervasyonu/UpdateBookingTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CreateBookingTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/otelrezervasyonu/CreateBookingTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/GetAllBookingsTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/otelrezervasyonu/GetAllBookingsTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/GetBookingByIdTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/otelrezervasyonu/GetBookingByIdTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +43,9 @@
     "JUnit.CreateBookingTests.createBookingTest.executor": "Run",
     "JUnit.CreateBookingTests.executor": "Run",
     "JUnit.GetAllBookingsTests.getAllBookingTest.executor": "Run",
+    "JUnit.GetBookingByIdTests.executor": "Run",
     "JUnit.GetBookingByIdTests.getBookingById.executor": "Run",
+    "JUnit.UpdateBookingTests.updateBookingTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
@@ -47,11 +53,11 @@
     "onboarding.tips.debug.path": "C:/Users/31626/IdeaProjects/RestAssured_Cucumber_Api/src/main/java/org/example/Main.java"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.CreateBookingTests">
+  <component name="RunManager" selected="JUnit.UpdateBookingTests.updateBookingTest">
     <configuration name="CreateBookingTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RestAssured_Cucumber_Api" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CreateBookingTests" />
+      <option name="PACKAGE_NAME" value="com.otelrezervasyonu" />
+      <option name="MAIN_CLASS_NAME" value="com.otelrezervasyonu.CreateBookingTests" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -59,29 +65,50 @@
     </configuration>
     <configuration name="CreateBookingTests.createBookingTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RestAssured_Cucumber_Api" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CreateBookingTests" />
+      <option name="PACKAGE_NAME" value="com.otelrezervasyonu" />
+      <option name="MAIN_CLASS_NAME" value="com.otelrezervasyonu.CreateBookingTests" />
       <option name="METHOD_NAME" value="createBookingTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GetAllBookingsTests.getAllBookingTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GetBookingByIdTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RestAssured_Cucumber_Api" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GetAllBookingsTests" />
-      <option name="METHOD_NAME" value="getAllBookingTest" />
-      <option name="TEST_OBJECT" value="method" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.otelrezervasyonu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.otelrezervasyonu" />
+      <option name="MAIN_CLASS_NAME" value="com.otelrezervasyonu.GetBookingByIdTests" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="GetBookingByIdTests.getBookingById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RestAssured_Cucumber_Api" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GetBookingByIdTests" />
+      <option name="PACKAGE_NAME" value="com.otelrezervasyonu" />
+      <option name="MAIN_CLASS_NAME" value="com.otelrezervasyonu.GetBookingByIdTests" />
       <option name="METHOD_NAME" value="getBookingById" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UpdateBookingTests.updateBookingTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RestAssured_Cucumber_Api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.otelrezervasyonu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.otelrezervasyonu" />
+      <option name="MAIN_CLASS_NAME" value="com.otelrezervasyonu.UpdateBookingTests" />
+      <option name="METHOD_NAME" value="updateBookingTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -89,10 +116,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CreateBookingTests" />
-        <item itemvalue="JUnit.CreateBookingTests.createBookingTest" />
+        <item itemvalue="JUnit.UpdateBookingTests.updateBookingTest" />
         <item itemvalue="JUnit.GetBookingByIdTests.getBookingById" />
-        <item itemvalue="JUnit.GetAllBookingsTests.getAllBookingTest" />
+        <item itemvalue="JUnit.GetBookingByIdTests" />
+        <item itemvalue="JUnit.CreateBookingTests.createBookingTest" />
+        <item itemvalue="JUnit.CreateBookingTests" />
       </list>
     </recent_temporary>
   </component>
