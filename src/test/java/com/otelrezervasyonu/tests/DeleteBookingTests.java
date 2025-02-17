@@ -1,4 +1,4 @@
-package com.otelrezervasyonu;
+package com.otelrezervasyonu.tests;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -15,14 +15,12 @@ public class DeleteBookingTests extends BaseTest{
         // rezervasyon olustur
         // delete request yap
 
-        Response response= given()
+        Response response= given(spec)
                 .contentType(ContentType.JSON)
                 .header("Cookie", "token=" +createToken())
                 .when()
-                .delete("  https://restful-booker.herokuapp.com/booking/"+ createBookingId());
+                .delete(" /booking/"+ createBookingId());
 
-
-        response.prettyPrint();
 
         // assertion yap
 
@@ -31,23 +29,7 @@ public class DeleteBookingTests extends BaseTest{
           .statusCode(201);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
-
-
-
 
 
 }

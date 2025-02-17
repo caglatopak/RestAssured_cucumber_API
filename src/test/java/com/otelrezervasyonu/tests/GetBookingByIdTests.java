@@ -1,4 +1,4 @@
-package com.otelrezervasyonu;
+package com.otelrezervasyonu.tests;
 
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Assertions;
@@ -15,13 +15,13 @@ public class GetBookingByIdTests extends BaseTest{
          // responce kontrolleri
          // curl -i https://restful-booker.herokuapp.com/booking/1
 
-        Response newBooking =createBooking();        // burda yeni olusturdugum rezervasyon id sine ulasabilirim
-        int reservationId= newBooking.jsonPath().getJsonObject("bookingid");  // id ye ulasim sagladim .
+      //  Response newBooking =createBooking();        // burda yeni olusturdugum rezervasyon id sine ulasabilirim
+       // int reservationId= newBooking.jsonPath().getJsonObject("bookingid");  // id ye ulasim sagladim .
 
 
-        Response response = given()
+        Response response = given(spec)
              .when()
-             .get("https://restful-booker.herokuapp.com/booking/" + reservationId );
+             .get("/booking/" + createBookingId() );
 
             // .then()
             // .log().all()
@@ -31,17 +31,17 @@ public class GetBookingByIdTests extends BaseTest{
                 .then()
                 .statusCode(200);
 
-         response.prettyPrint();
+
 
          String firstname = response.jsonPath().getJsonObject("firstname"); // response icindeki jsonpath den bir objeye ersiim saglandi
          String lastname  = response.jsonPath().getJsonObject("lastname");
          int totalprice  = response.jsonPath().getJsonObject("totalprice");
          Boolean depositpaid = response.jsonPath().getJsonObject("depositpaid");
 
-        Assertions.assertEquals("cagla", firstname); // dogrulama beklenne sonuc ile gerceklesen sonucu karsilastirmak
+        Assertions.assertEquals("Ozan", firstname); // dogrulama beklenne sonuc ile gerceklesen sonucu karsilastirmak
         // icin kullanilr/api nin verdigi yanitlarin dogru olup olmadigini kontrol ederiz
 
-        Assertions.assertEquals("topak", lastname);
+        Assertions.assertEquals("Ilhan", lastname);
 
         Assertions.assertEquals(200,totalprice);
 

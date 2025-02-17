@@ -1,8 +1,10 @@
-package com.otelrezervasyonu;
+package com.otelrezervasyonu.tests;
 
+import com.otelrezervasyonu.models.Booking;
+import com.otelrezervasyonu.models.BookingDates;
+import com.otelrezervasyonu.models.BookingResponse;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import org.json.JSONObject;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -71,48 +73,34 @@ public class CreateBookingTests extends BaseTest{ // yani bu sinif basetest sini
                                              // response methoduna tasidiktan sonra burda methodu cagirrarak assertionlarimiz yapabiliriz
 
 
-        Assertions.assertEquals("cagla", response.jsonPath().getJsonObject("booking.firstname")); // first name e erisim saglamak icin ondan onceki bagli oldugu path i yazmamiz gerekir
-        Assertions.assertEquals("topak", response.jsonPath().getJsonObject("booking.lastname"));
+        Assertions.assertEquals("Ozan", response.jsonPath().getJsonObject("booking.firstname")); // first name e erisim saglamak icin ondan onceki bagli oldugu path i yazmamiz gerekir
+        Assertions.assertEquals("Ilhan", response.jsonPath().getJsonObject("booking.lastname"));
         Assertions.assertEquals(200,(Integer)response.jsonPath().getJsonObject("booking.totalprice"));
         Assertions.assertEquals(true, response.jsonPath().getJsonObject("booking.depositpaid"));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     }
 
 
+    @Test
+    public void createBookingWithPojo() {
+        BookingDates bookingDates = new BookingDates("2023-01-01", "2023-01-02");
+        Booking booking = new Booking("Udemy", "Kurs", 350, true, bookingDates, "Tek kisilik yatak");
 
+        Response response = given(spec)
+                .contentType(ContentType.JSON)
+                .body(booking)
+                .post("/booking");
 
+        response
+                .then()
+                .statusCode(200);
 
+        BookingResponse bookingResponse = response.as(BookingResponse.class);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        Assertions.assertEquals("Udemy", bookingResponse.getBooking().getFirstname());
+        Assertions.assertEquals("Kurs", bookingResponse.getBooking().getLastname());
+        Assertions.assertEquals("Tek kisilik yatak", bookingResponse.getBooking().getAdditionalneeds());
+    }
 
 }
